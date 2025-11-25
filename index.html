@@ -3,1006 +3,752 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLESSED - Хэндмейд заколки-банты ручной работы</title>
+    <title>Банты ручной работы | Портфолио</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #ff6b9d;
+            --secondary: #7c4dff;
+            --dark: #1a1a2e;
+            --light: #ffffff;
+            --gray: #f8f9fa;
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
-        :root {
-            --primary: #ff9ebb;
-            --secondary: #c97b9a;
-            --accent: #f5d0dc;
-            --dark: #333;
-            --light: #f9f9f9;
-        }
-        
+
         body {
-            background-color: var(--light);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
             color: var(--dark);
-            line-height: 1.6;
-            scroll-behavior: smooth;
+            background: var(--light);
+            overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 20px 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--light);
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        /* Navigation */
+        nav {
             position: fixed;
             top: 0;
-            left: 0;
-            right: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             z-index: 1000;
+            padding: 1rem 0;
         }
-        
-        .header-content {
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 0 2rem;
         }
-        
+
         .logo {
-            display: flex;
-            align-items: center;
-            font-size: 28px;
-            font-weight: bold;
-        }
-        
-        .logo-img {
-            width: 50px;
-            height: 50px;
-            background-color: rgba(255,255,255,0.2);
-            border-radius: 50%;
-            margin-right: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 25px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 5px 10px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        
-        nav ul li a:hover, nav ul li a.active {
-            background-color: rgba(255,255,255,0.2);
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: url('https://images.unsplash.com/photo-1515377905703-c4788e51af15?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: white;
-            position: relative;
-            margin-top: 80px;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.4);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-        
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: transform 0.3s, background-color 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-        
-        .btn:hover {
-            background: var(--secondary);
-            transform: translateY(-3px);
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
+            font-size: 1.5rem;
+            font-weight: 800;
             color: var(--primary);
         }
-        
-        .btn-outline:hover {
-            background: var(--primary);
-            color: white;
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
         }
-        
-        .btn-success {
-            background: #27ae60;
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: color 0.3s ease;
         }
-        
-        .btn-success:hover {
-            background: #219653;
+
+        .nav-link:hover {
+            color: var(--primary);
         }
-        
-        .btn-danger {
-            background: #e74c3c;
+
+        /* Sections */
+        section {
+            padding: 100px 2rem;
         }
-        
-        .btn-danger:hover {
-            background: #c0392b;
-        }
-        
-        .btn-warning {
-            background: #f39c12;
-        }
-        
-        .btn-warning:hover {
-            background: #e67e22;
-        }
-        
-        .btn-small {
-            padding: 8px 16px;
-            font-size: 14px;
-        }
-        
-        /* Section Styles */
-        .section {
-            padding: 100px 0;
-        }
-        
+
         .section-title {
             text-align: center;
-            font-size: 36px;
-            margin-bottom: 50px;
-            color: var(--dark);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        
-        /* Products Section */
-        .products {
-            background-color: var(--accent);
-        }
-        
-        .products-grid {
+
+        /* About Section */
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
         }
-        
-        .product-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
+
+        .logo-container {
             text-align: center;
         }
-        
-        .product-card:hover {
-            transform: translateY(-10px);
+
+        .logo-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
-        
-        .product-img {
-            height: 250px;
-            background-color: #f5f5f5;
+
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-placeholder {
+            width: 200px;
+            height: 200px;
+            background: var(--gray);
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            margin: 0 auto;
+            border: 3px solid var(--primary);
             color: #999;
-            font-size: 14px;
+            font-size: 1.1rem;
+            text-align: center;
+            padding: 1rem;
         }
-        
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+
+        /* Catalog Grid */
+        .catalog-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--light);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover .product-image img {
+            transform: scale(1.05);
+        }
+
         .product-info {
-            padding: 20px;
+            padding: 1.5rem;
         }
-        
-        .product-info h3 {
-            margin-bottom: 10px;
-            font-size: 20px;
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
             color: var(--dark);
         }
-        
-        .product-info p {
+
+        .product-description {
             color: #666;
-            margin-bottom: 15px;
+            font-size: 0.95rem;
+            line-height: 1.5;
         }
-        
-        .price {
-            font-weight: bold;
-            color: var(--secondary);
-            font-size: 22px;
-            margin: 15px 0;
-        }
-        
-        .product-actions {
+
+        .product-number {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--primary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
             display: flex;
-            gap: 10px;
+            align-items: center;
             justify-content: center;
-            margin-top: 15px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            z-index: 2;
         }
-        
-        /* Features Section */
-        .features {
-            background-color: white;
-        }
-        
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-        
-        .feature-card {
-            text-align: center;
-            padding: 40px 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature-icon {
-            font-size: 48px;
-            margin-bottom: 20px;
-        }
-        
-        .feature-card h3 {
-            margin-bottom: 15px;
-            font-size: 20px;
-        }
-        
+
         /* News Section */
-        .news {
-            background-color: white;
-        }
-        
         .news-grid {
+            max-width: 1200px;
+            margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+            gap: 2rem;
         }
-        
+
         .news-card {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
+            background: var(--light);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
         }
-        
+
         .news-card:hover {
             transform: translateY(-5px);
         }
-        
-        .news-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #eee;
-        }
-        
-        .news-author {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .author-avatar {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-        }
-        
-        .news-title {
-            font-size: 20px;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        
-        .news-content {
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        
-        .news-date {
-            color: #888;
-            font-size: 14px;
-        }
-        
-        /* Reviews Section */
-        .reviews {
-            background-color: var(--accent);
-        }
-        
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .review-card {
-            background: white;
-            border-radius: 10px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-        }
-        
-        .review-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .review-text {
-            font-style: italic;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-        
-        .review-author {
-            font-weight: bold;
-            color: var(--secondary);
-            text-align: right;
-        }
-        
-        .review-product {
-            font-size: 14px;
-            color: #888;
-            margin-top: 5px;
-            text-align: right;
-        }
-        
-        /* About Section */
-        .about {
-            background-color: white;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-text h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: var(--dark);
-        }
-        
-        .about-text p {
-            margin-bottom: 20px;
-            font-size: 16px;
-            line-height: 1.8;
-        }
-        
-        .about-image {
-            flex: 1;
-            height: 400px;
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-        }
-        
-        /* Contact Section */
-        .contact {
-            background-color: var(--accent);
-        }
-        
-        .contact-content {
-            display: flex;
-            gap: 50px;
-        }
-        
-        .contact-info {
-            flex: 1;
-        }
-        
-        .contact-form {
-            flex: 1;
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 25px;
-        }
-        
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-            color: white;
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .social-links a {
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: background-color 0.3s;
-            font-weight: bold;
-        }
-        
-        .social-links a:hover {
-            background: var(--secondary);
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
+
+        .news-image {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
+            height: 200px;
+            background: var(--gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
         }
-        
-        .form-group textarea {
-            height: 150px;
-            resize: vertical;
+
+        .news-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
         }
-        
+
+        .news-card:hover .news-image img {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 1.5rem;
+        }
+
+        .news-date {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+            font-size: 0.9rem;
+        }
+
+        .news-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark);
+        }
+
+        .news-text {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .news-number {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--secondary);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        /* Links Section */
+        .links-grid {
+            max-width: 800px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .link-card {
+            background: var(--light);
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--dark);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .link-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+            box-shadow: 0 15px 40px rgba(255,107,157,0.2);
+        }
+
+        .link-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .link-title {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
-            color: white;
-            padding: 50px 0 20px;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column {
-            flex: 1;
-            min-width: 200px;
-            margin-bottom: 30px;
-        }
-        
-        .footer-column h3 {
-            font-size: 20px;
-            margin-bottom: 20px;
-            color: var(--primary);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 10px;
-        }
-        
-        .footer-column ul li a {
-            color: #ddd;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--primary);
-        }
-        
-        .copyright {
+            color: var(--light);
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid #444;
-            font-size: 14px;
-            color: #aaa;
+            padding: 3rem 2rem;
+            margin-top: 4rem;
         }
-        
+
+        /* Loading */
+        .loading {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: loading 1.5s infinite;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
                 text-align: center;
             }
             
-            nav ul {
-                margin-top: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 5px 10px;
-            }
-            
-            .hero {
-                margin-top: 120px;
-                height: 70vh;
-            }
-            
-            .hero h1 {
-                font-size: 36px;
-            }
-            
-            .about-content, .contact-content {
-                flex-direction: column;
-            }
-            
-            .footer-content {
-                flex-direction: column;
-            }
-            
-            .product-actions {
-                flex-direction: column;
+            .logo-image,
+            .logo-placeholder {
+                width: 150px;
+                height: 150px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-img">
-                        Лого
-                    </div>
-                    <span>BLESSED</span>
-                </div>
-                <nav>
-                    <ul>
-                        <li><a href="#home" class="nav-link active">Главная</a></li>
-                        <li><a href="#products" class="nav-link">Каталог</a></li>
-                        <li><a href="#features" class="nav-link">Преимущества</a></li>
-                        <li><a href="#news" class="nav-link">Новости</a></li>
-                        <li><a href="#reviews" class="nav-link">Отзывы</a></li>
-                        <li><a href="#about" class="nav-link">О нас</a></li>
-                        <li><a href="#contact" class="nav-link">Контакты</a></li>
-                    </ul>
-                </nav>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Blessed Bows</div>
+            <div class="nav-links">
+                <a href="#blessed" class="nav-link">Blessed</a>
+                <a href="#catalog" class="nav-link">Каталог</a>
+                <a href="#news" class="nav-link">Новости</a>
+                <a href="#links" class="nav-link">Заказать</a>
             </div>
         </div>
-    </header>
+    </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section class="hero">
         <div class="hero-content">
-            <h1>Эксклюзивные заколки-банты ручной работы</h1>
-            <p>Уникальные аксессуары для волос, созданные с любовью и вниманием к деталям</p>
-            <a href="#products" class="btn">Смотреть каталог</a>
+            <h1>Банты ручной работы</h1>
+            <p>Уникальные банты и аксессуары с благословением</p>
+            <a href="#catalog" class="nav-link" style="color: white; border: 2px solid white; padding: 12px 30px; border-radius: 25px; text-decoration: none;">
+                Смотреть каталог
+            </a>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="section products">
-        <div class="container">
-            <h2 class="section-title">Наши заколки-банты</h2>
-            <div class="products-grid">
-                <div class="product-card">
-                    <div class="product-img" style="background-color: #f5d0dc;">
-                        <span>Изображение заколки-банта</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Элегантный бант с жемчугом</h3>
-                        <p>Нежный бант из атласной ленты с декоративными жемчужинами</p>
-                        <div class="price">800 ₽</div>
-                        <div class="product-actions">
-                            <a href="https://www.avito.ru/brands/13515ad6acc630ab13218e1df6a7646e/all?gdlkerfdnwq=101&iid=7809350964&item_type=str_trx&page_from=from_item_card&sellerId=9527e5772bb848fdc4476196e3b4c9ea" class="btn" target="_blank">Заказать</a>
-                            <button class="btn btn-outline" onclick="scrollToSection('reviews')">Оставить отзыв</button>
-                        </div>
-                    </div>
+    <!-- Blessed Section (О себе) -->
+    <section id="blessed">
+        <h2 class="section-title">Blessed</h2>
+        <div class="about-content">
+            <div class="logo-container">
+                <img src="photos/logo.png" alt="Blessed Logo" class="logo-image" 
+                     id="logo-image"
+                     onerror="document.getElementById('logo-placeholder').style.display='flex'; this.style.display='none';">
+                <div class="logo-placeholder" id="logo-placeholder" style="display: none;">
+                    📁 Добавьте файл:<br>photos/logo.png
                 </div>
-                
-                <div class="product-card">
-                    <div class="product-img" style="background-color: #c9e4f7;">
-                        <span>Изображение заколки-банта</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Бант в стиле ретро</h3>
-                        <p>Яркий бант из бархатной ткани с винтажным узором</p>
-                        <div class="price">800 ₽</div>
-                        <div class="product-actions">
-                            <a href="https://www.avito.ru/brands/13515ad6acc630ab13218e1df6a7646e/all?gdlkerfdnwq=101&iid=7809350964&item_type=str_trx&page_from=from_item_card&sellerId=9527e5772bb848fdc4476196e3b4c9ea" class="btn" target="_blank">Заказать</a>
-                            <button class="btn btn-outline" onclick="scrollToSection('reviews')">Оставить отзыв</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-img" style="background-color: #d4e6d4;">
-                        <span>Изображение заколки-банта</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Минималистичный бант</h3>
-                        <p>Сдержанный бант из натурального шелка пастельных тонов</p>
-                        <div class="price">800 ₽</div>
-                        <div class="product-actions">
-                            <a href="https://www.avito.ru/brands/13515ad6acc630ab13218e1df6a7646e/all?gdlkerfdnwq=101&iid=7809350964&item_type=str_trx&page_from=from_item_card&sellerId=9527e5772bb848fdc4476196e3b4c9ea" class="btn" target="_blank">Заказать</a>
-                            <button class="btn btn-outline" onclick="scrollToSection('reviews')">Оставить отзыв</button>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="product-card">
-                    <div class="product-img" style="background-color: #f7e4c9;">
-                        <span>Изображение заколки-банта</span>
-                    </div>
-                    <div class="product-info">
-                        <h3>Вечерний бант с кристаллами</h3>
-                        <p>Роскошный бант для особых случаев с искрящимися кристаллами</p>
-                        <div class="price">800 ₽</div>
-                        <div class="product-actions">
-                            <a href="https://www.avito.ru/brands/13515ad6acc630ab13218e1df6a7646e/all?gdlkerfdnwq=101&iid=7809350964&item_type=str_trx&page_from=from_item_card&sellerId=9527e5772bb848fdc4476196e3b4c9ea" class="btn" target="_blank">Заказать</a>
-                            <button class="btn btn-outline" onclick="scrollToSection('reviews')">Оставить отзыв</button>
-                        </div>
-                    </div>
-                </div>
+                <p style="text-align: center; margin-top: 1rem; color: #666; font-size: 0.9rem;">
+                    Логотип Blessed
+                </p>
+            </div>
+            <div class="about-text">
+                <h3>О Blessed</h3>
+                <p>
+                    Blessed - это не просто бренд, это философия создания прекрасного. 
+                    Каждый бант создается с любовью и благословением, неся в себе 
+                    частичку тепла и заботы.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Мы верим, что красивые вещи должны не только украшать, но и вдохновлять. 
+                    Наши банты - это больше чем аксессуары, это маленькие произведения искусства, 
+                    созданные для особенных моментов вашей жизни.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Используем только качественные материалы и вкладываем душу в каждое изделие. 
+                    Присоединяйтесь к миру Blessed!
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="section features">
-        <div class="container">
-            <h2 class="section-title">Почему выбирают BLESSED</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎀</div>
-                    <h3>Ручная работа</h3>
-                    <p>Каждый бант создается вручную с любовью и вниманием к деталям</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💎</div>
-                    <h3>Качественные материалы</h3>
-                    <p>Используем только натуральные ткани и фурнитуру премиум-класса</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🚚</div>
-                    <h3>Быстрая доставка</h3>
-                    <p>Доставляем заказы по всей России в кратчайшие сроки</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">⭐</div>
-                    <h3>Уникальность</h3>
-                    <p>Каждое изделие создается в единственном экземпляре</p>
-                </div>
-            </div>
+    <!-- Catalog Section -->
+    <section id="catalog" style="background: var(--gray);">
+        <h2 class="section-title">Наши банты</h2>
+        <div class="catalog-grid" id="catalog-container">
+            <!-- Каталог будет загружен автоматически через JavaScript -->
         </div>
     </section>
 
     <!-- News Section -->
-    <section id="news" class="section news">
-        <div class="container">
-            <h2 class="section-title">Последние новости</h2>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-header">
-                        <div class="news-author">
-                            <div class="author-avatar">A</div>
-                            <div>
-                                <div class="author-name">Администратор</div>
-                                <div class="news-date">2023-11-15</div>
-                            </div>
-                        </div>
-                    </div>
-                    <h3 class="news-title">Новый цвет бантов - небесная лазурь!</h3>
-                    <div class="news-content">
-                        Дорогие друзья! Спешим поделиться радостной новостью - в нашу коллекцию добавился восхитительный небесно-голубой цвет! Эти банты идеально подходят для весенних образов и создают невероятно нежное настроение. Уже доступны для заказа во всех моделях!
-                    </div>
-                </div>
-
-                <div class="news-card">
-                    <div class="news-header">
-                        <div class="news-author">
-                            <div class="author-avatar">A</div>
-                            <div>
-                                <div class="author-name">Администратор</div>
-                                <div class="news-date">2023-11-10</div>
-                            </div>
-                        </div>
-                    </div>
-                    <h3 class="news-title">Теперь с подарочной упаковкой!</h3>
-                    <div class="news-content">
-                        Отличные новости для тех, кто любит дарить красивые подарки! Теперь все наши банты можно заказать в праздничной подарочной упаковке. Элегантная коробочка с лентой сделает ваш подарок еще более особенным. Подарочная упаковка доступна бесплатно при заказе от 2 бантов!
-                    </div>
-                </div>
-            </div>
+    <section id="news">
+        <h2 class="section-title">Последние новости</h2>
+        <div class="news-grid" id="news-container">
+            <!-- Новости будут загружены автоматически через JavaScript -->
         </div>
     </section>
 
-    <!-- Reviews Section -->
-    <section id="reviews" class="section reviews">
-        <div class="container">
-            <h2 class="section-title">Отзывы наших клиентов</h2>
-            <div class="reviews-grid">
-                <div class="review-card">
-                    <p class="review-text">Превосходное качество! Носить одно удовольствие. Бант сидит идеально и не спадает.</p>
-                    <p class="review-author">- Анна</p>
-                    <p class="review-product">Элегантный бант с жемчугом</p>
-                </div>
-                
-                <div class="review-card">
-                    <p class="review-text">Заказывала уже три бантика от BLESSED, и все просто шикарные! Качество материалов на высоте, все аккуратно прошито, держится крепко.</p>
-                    <p class="review-author">- Екатерина</p>
-                    <p class="review-product">Бант в стиле ретро</p>
-                </div>
-                
-                <div class="review-card">
-                    <p class="review-text">Получила свой заказ быстрее, чем ожидала! Бантик еще красивее, чем на фото - переливается на солнце.</p>
-                    <p class="review-author">- Мария</p>
-                    <p class="review-product">Вечерний бант с кристаллами</p>
-                </div>
-                
-                <div class="review-card">
-                    <p class="review-text">Заказывала бант на день рождения дочери - она была в восторге! Качество исполнения просто отличное.</p>
-                    <p class="review-author">- Ирина</p>
-                    <p class="review-product">Минималистичный бант</p>
-                </div>
-            </div>
+    <!-- Links Section -->
+    <section id="links" style="background: var(--gray);">
+        <h2 class="section-title">Где заказать</h2>
+        <div class="links-grid">
+            <a href="https://www.avito.ru/brands/13515ad6acc630ab13218e1df6a7646e/all?gdlkerfdnwq=101&iid=7809350964&item_type=str_trx&page_from=from_item_card&sellerId=9527e5772bb848fdc4476196e3b4c9ea" 
+               class="link-card" target="_blank">
+                <div class="link-icon">🛒</div>
+                <div class="link-title">Авито</div>
+                <div>Магазин и заказы</div>
+            </a>
+            
+            <a href="https://vk.com/id159951485" 
+               class="link-card" target="_blank">
+                <div class="link-icon"><i class="fab fa-vk"></i></div>
+                <div class="link-title">ВКонтакте</div>
+                <div>Сообщения и заказы</div>
+            </a>
+            
+            <a href="https://web.telegram.org/a/#-1003238842699" 
+               class="link-card" target="_blank">
+                <div class="link-icon"><i class="fab fa-telegram"></i></div>
+                <div class="link-title">Телеграм</div>
+                <div>Быстрый заказ</div>
+            </a>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title">О нашем творчестве</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>О нашем творчестве</h2>
-                    <p>Мы создаем уникальные заколки-банты ручной работы, которые подчеркивают индивидуальность и добавляют изюминку вашему образу. Каждое изделие сделано с любовью и вниманием к деталям.</p>
-                    <p>Мы используем только качественные материалы: натуральные ткани, стразы, жемчуг и фурнитуру премиум-класса. Наши банты - это не просто аксессуары, а маленькие произведения искусства.</p>
-                    <p>Все изделия изготавливаются в единственном экземпляре или ограниченными сериями, поэтому вы можете быть уверены в уникальности вашего приобретения.</p>
-                </div>
-                <div class="about-image">
-                    <span>Фото процесса создания</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title">Свяжитесь с нами</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            📍
-                        </div>
-                        <div>
-                            <h3>Адрес</h3>
-                            <p>Доставка по всей России</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            📞
-                        </div>
-                        <div>
-                            <h3>Телефон</h3>
-                            <p>+7 (XXX) XXX-XX-XX</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            ✉️
-                        </div>
-                        <div>
-                            <h3>Email</h3>
-                            <p>bows-blessed@example.ru</p>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <!-- ВСТАВЬТЕ ВАШИ ССЫЛКИ ЗДЕСЬ -->
-                        <a href="https://t.me/your_telegram" target="_blank">TG</a>
-                        <a href="https://www.avito.ru/brands/13515ad6acc630ab13218e1df6a7646e/all?gdlkerfdnwq=101&iid=7809350964&item_type=str_trx&page_from=from_item_card&sellerId=9527e5772bb848fdc4476196e3b4c9ea" target="_blank">AV</a>
-                        <a href="https://vk.com/your_vk" target="_blank">VK</a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="order-form">
-                        <div class="form-group">
-                            <label for="name">Ваше имя</label>
-                            <input type="text" id="name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Ваш телефон</label>
-                            <input type="tel" id="phone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="product">Интересующий товар</label>
-                            <input type="text" id="product">
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Дополнительная информация</label>
-                            <textarea id="message"></textarea>
-                        </div>
-                        <button type="submit" class="btn">Отправить заявку</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-column">
-                    <h3>BLESSED</h3>
-                    <p>Эксклюзивные заколки-банты ручной работы. Создано с любовью!</p>
-                    <div class="social-links">
-                        <a href="https://t.me/your_telegram" target="_blank">TG</a>
-                        <a href="https://www.avito.ru/brands/13515ad6acc630ab13218e1df6a7646e/all?gdlkerfdnwq=101&iid=7809350964&item_type=str_trx&page_from=from_item_card&sellerId=9527e5772bb848fdc4476196e3b4c9ea" target="_blank">AV</a>
-                        <a href="https://vk.com/your_vk" target="_blank">VK</a>
-                    </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Каталог</h3>
-                    <ul>
-                        <li><a href="#products">Заколки-банты</a></li>
-                        <li><a href="#products">Новые поступления</a></li>
-                        <li><a href="#products">Хиты продаж</a></li>
-                        <li><a href="#products">Эксклюзивные модели</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Покупателям</h3>
-                    <ul>
-                        <li><a href="#">Оплата и доставка</a></li>
-                        <li><a href="#">Возврат и обмен</a></li>
-                        <li><a href="#">Частые вопросы</a></li>
-                        <li><a href="#reviews">Отзывы</a></li>
-                        <li><a href="#news">Новости</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Контакты</h3>
-                    <ul>
-                        <li>Доставка по всей России</li>
-                        <li>+7 (XXX) XXX-XX-XX</li>
-                        <li>bows-blessed@example.ru</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 BLESSED. Все права защищены.</p>
-            </div>
-        </div>
+        <p>© 2024 Blessed Bows. Банты ручной работы с благословением. Сделано с ❤️</p>
     </footer>
 
     <script>
-        // Плавная прокрутка к секциям
-        function scrollToSection(sectionId) {
-            document.getElementById(sectionId).scrollIntoView({
-                behavior: 'smooth'
+        // Функция для загрузки каталога
+        async function loadCatalog() {
+            const catalogContainer = document.getElementById('catalog-container');
+            const totalProducts = 20;
+            
+            for (let i = 1; i <= totalProducts; i++) {
+                try {
+                    // Загружаем описание из txt файла
+                    const response = await fetch(`descriptions/${i}.txt`);
+                    let description = 'Описание скоро появится...';
+                    
+                    if (response.ok) {
+                        description = await response.text();
+                    }
+                    
+                    // Создаем карточку товара
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <div class="product-number">${i}</div>
+                        <div class="product-image">
+                            <img src="photos/${i}.jpg" alt="Бант ${i}" 
+                                 onerror="this.style.display='none'; this.parentElement.classList.add('loading');">
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Бант Blessed #${i}</div>
+                            <div class="product-description">${description}</div>
+                        </div>
+                    `;
+                    
+                    catalogContainer.appendChild(productCard);
+                    
+                } catch (error) {
+                    console.error(`Ошибка загрузки товара ${i}:`, error);
+                    
+                    // Создаем карточку с заглушкой при ошибке
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <div class="product-number">${i}</div>
+                        <div class="product-image loading">
+                            <div style="color: #999; text-align: center;">
+                                <div>🖼️</div>
+                                <div style="font-size: 0.9rem; margin-top: 0.5rem;">photos/${i}.jpg</div>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <div class="product-title">Бант Blessed #${i}</div>
+                            <div class="product-description">
+                                Файл descriptions/${i}.txt<br>
+                                Добавьте описание в этот файл
+                            </div>
+                        </div>
+                    `;
+                    
+                    catalogContainer.appendChild(productCard);
+                }
+            }
+        }
+
+        // Функция для загрузки новостей
+        async function loadNews() {
+            const newsContainer = document.getElementById('news-container');
+            const maxNews = 10; // Максимальное количество новостей
+            
+            for (let i = 1; i <= maxNews; i++) {
+                try {
+                    // Пытаемся загрузить описание новости
+                    const response = await fetch(`NEWS/${i}.txt`);
+                    
+                    if (!response.ok) {
+                        // Если файла нет, прекращаем загрузку
+                        if (i === 1) {
+                            // Если нет даже первой новости, показываем заглушку
+                            showNewsPlaceholder();
+                        }
+                        break;
+                    }
+                    
+                    const newsContent = await response.text();
+                    const lines = newsContent.split('\n');
+                    const date = lines[0] || 'Дата не указана';
+                    const title = lines[1] || 'Новая новость';
+                    const text = lines.slice(2).join('\n') || 'Описание новости...';
+                    
+                    // Создаем карточку новости
+                    const newsCard = document.createElement('div');
+                    newsCard.className = 'news-card';
+                    newsCard.innerHTML = `
+                        <div class="news-number">${i}</div>
+                        <div class="news-image">
+                            <img src="NEWS/${i}.jpg" alt="Новость ${i}" 
+                                 onerror="this.style.display='none'; this.parentElement.classList.add('loading');">
+                        </div>
+                        <div class="news-content">
+                            <span class="news-date">${date}</span>
+                            <h3 class="news-title">${title}</h3>
+                            <p class="news-text">${text}</p>
+                        </div>
+                    `;
+                    
+                    newsContainer.appendChild(newsCard);
+                    
+                } catch (error) {
+                    console.error(`Ошибка загрузки новости ${i}:`, error);
+                    
+                    if (i === 1) {
+                        showNewsPlaceholder();
+                    }
+                    break;
+                }
+            }
+        }
+
+        // Заглушка если нет новостей
+        function showNewsPlaceholder() {
+            const newsContainer = document.getElementById('news-container');
+            newsContainer.innerHTML = `
+                <div class="news-card" style="text-align: center;">
+                    <div class="news-content">
+                        <h3 class="news-title">Новости скоро появятся</h3>
+                        <p class="news-text">
+                            📁 Добавьте новости в папку NEWS/<br><br>
+                            <strong>Структура файлов:</strong><br>
+                            NEWS/1.jpg + NEWS/1.txt<br>
+                            NEWS/2.jpg + NEWS/2.txt<br>
+                            и т.д.
+                        </p>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Проверяем загрузку логотипа
+        function checkLogo() {
+            const logoImg = document.getElementById('logo-image');
+            const logoPlaceholder = document.getElementById('logo-placeholder');
+            
+            if (logoImg.naturalWidth === 0) {
+                logoImg.style.display = 'none';
+                logoPlaceholder.style.display = 'flex';
+            }
+        }
+
+        // Анимация появления элементов при скролле
+        function startAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = `fadeInUp 0.6s ease forwards`;
+                        entry.target.style.opacity = '0';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.product-card, .news-card, .link-card, .about-content').forEach(el => {
+                el.style.opacity = '0';
+                observer.observe(el);
             });
         }
 
-        // Активное состояние навигации при прокрутке
-        window.addEventListener('scroll', function() {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
-            let current = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - 100)) {
-                    current = section.getAttribute('id');
-                }
-            });
-            
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === '#' + current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Обработка формы заказа
-        document.getElementById('order-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            alert('Спасибо за вашу заявку! Мы свяжемся с вами в ближайшее время.');
-            this.reset();
-        });
-
-        // Обработка навигационных ссылок
-        document.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', function(e) {
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                scrollToSection(targetId);
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
             });
         });
+
+        // Загружаем контент при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCatalog();
+            loadNews();
+            setTimeout(checkLogo, 1000);
+            setTimeout(startAnimations, 1500);
+        });
+
+        // Структура папок для организации файлов
+        function createFolderStructure() {
+            /*
+            📁 СТРУКТУРА ПАПОК:
+            
+            your-website/
+            ├── index.html
+            ├── photos/
+            │   ├── logo.png
+            │   ├── 1.jpg
+            │   ├── 2.jpg
+            │   └── ... до 20.jpg
+            ├── descriptions/
+            │   ├── 1.txt
+            │   ├── 2.txt
+            │   └── ... до 20.txt
+            └── NEWS/
+                ├── 1.jpg
+                ├── 1.txt
+                ├── 2.jpg
+                ├── 2.txt
+                └── ... (сколько нужно новостей)
+            */
+        }
     </script>
 </body>
 </html>
